@@ -3,7 +3,7 @@ from datetime import datetime
 from werkzeug.security import check_password_hash, generate_password_hash
 
 db=SQLAlchemy()
-
+# 这个基类要是继承于db.Model就会生成物理表，而这没必要
 class BaseModel(object):
     create_time = db.Column(db.DateTime,default=datetime.now())
     update_time = db.Column(db.DateTime,default=datetime.now())
