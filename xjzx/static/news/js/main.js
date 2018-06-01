@@ -176,13 +176,15 @@ function sendSMSCode() {
 }
 
 // 调用该函数模拟点击左侧按钮
-function fnChangeMenu(n) {
+function fnChangeMenu(n,cb) {
     var $li = $('.option_list li');
     if (n >= 0) {
         $li.eq(n).addClass('active').siblings().removeClass('active');
         // 执行 a 标签的点击事件
         $li.eq(n).find('a')[0].click()
     }
+    setTimeout(cb.callback(0,0),2000)
+
 }
 
 // 一般页面的iframe的高度是660

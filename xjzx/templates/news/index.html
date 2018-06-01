@@ -27,7 +27,7 @@
             <!-- 用户登录后显示下面，隐藏上面 -->
             <div class="user_login fr">
                 <img src="images/person01.png" class="lgin_pic">
-                <a href="#" id="nick_name"></a>
+                <a href="/user/" id="nick_name"></a>
                 <a href="#" id="logout">退出</a>
             </div>
         </div>
@@ -269,8 +269,14 @@
             'csrf_token':$('#csrf_token').val()
         },function (data) {
             if(data.result==1){
-                $('.user_btns').show();
-                $('.user_login').hide();
+                if (location.pathname=='/user/') {
+                    //当user退出时需要转到首页
+                    location.href = '/';//在js中重定向的代码
+                } else {
+                    //当首页、详细页退出时进行div切换
+                    $('.user_btns').show();
+                    $('.user_login').hide();
+                }
             }
         });
     });

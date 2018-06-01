@@ -3,11 +3,13 @@ import os
 
 
 class Config(object):
+    # host='192.168.88.128'
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'mysql://name:password@host:port/database'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     # redis配置
-    REDIS_HOST = "localhost"
+    # 大坑啊，redis不能理解localhost
+    REDIS_HOST = "127.0.0.1"
     REDIS_PORT = 6379
     REDIS_DB = 10
     # session
@@ -29,7 +31,6 @@ class Config(object):
     QINIU_SK = 'uOZfRdFtljIw7b8jr6iTG-cC6wY_-N19466PXUAb'
     QINIU_BUCKET = 'itcast20171104'
     QINIU_URL = 'http://oyvzbpqij.bkt.clouddn.com/'
-
 
 
 class DevelopConfig(Config):

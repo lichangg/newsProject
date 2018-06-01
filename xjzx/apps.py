@@ -1,8 +1,9 @@
-from flask import Flask,Session
+from flask import Flask
 from admin_views import admin_blueprint
 from news_views import news_blueprint
 from user_views import user_blueprint
-
+# 不是flask里面的Session是flask_session里面的
+from flask_session import Session
 def create_app(config):
     app=Flask(__name__)
     app.config.from_object(config)

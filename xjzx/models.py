@@ -1,3 +1,4 @@
+from flask import current_app
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -99,6 +100,12 @@ class UserInfo(db.Model,BaseModel):
 
     def check_pwd(self, pwd):
         return check_password_hash(self.password_hash, pwd)
+
+    @property#user.avatar_url()==>user.avatar_url
+    def avatar_url(self):
+        # return '/static/news/images/'+self.avatar
+        return current_app.config.get('QINIU_URL')+self.avatar
+
 
 
 class NewsComment(db.Model, BaseModel):
