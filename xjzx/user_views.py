@@ -124,7 +124,7 @@ def login():
             # 状态保持
             session['user_id'] = user.id
             #返回成功的结果
-            return jsonify(result=4, avatar=user.avatar, nick_name=user.nick_name)
+            return jsonify(result=4, avatar=user.avatar_url, nick_name=user.nick_name)
         else:
             # 密码错误
             return jsonify(result=3)

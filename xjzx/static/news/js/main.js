@@ -182,11 +182,11 @@ function fnChangeMenu(n,cb) {
         $li.eq(n).addClass('active').siblings().removeClass('active');
         // 执行 a 标签的点击事件
         $li.eq(n).find('a')[0].click()
+
     }
     setTimeout(cb.callback(0,0),2000)
 
 }
-
 // 一般页面的iframe的高度是660
 // 新闻发布页面iframe的高度是900
 function fnSetIframeHeight(num){

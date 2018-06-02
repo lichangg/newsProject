@@ -34,6 +34,9 @@ class NewsInfo(db.Model,BaseModel):
     comments=db.relationship('NewsComment',backref='news',lazy='dynamic')
     order_by='NewsComment.id.desc()'
 
+    @property
+    def pic_url(self):
+        return current_app.config.get('QINIU_URL') + self.pic
 
 tb_user_follow = db.Table(
     'tb_user_follow',
